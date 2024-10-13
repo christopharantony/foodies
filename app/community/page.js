@@ -1,26 +1,40 @@
-import Link from "next/link";
+import Image from 'next/image';
 
-export default function Community() {
+import mealIcon from '@/assets/icons/meal.png';
+import communityIcon from '@/assets/icons/community.png';
+import eventsIcon from '@/assets/icons/events.png';
+import classes from './page.module.css';
+
+export default function CommunityPage() {
   return (
-    <main>
-      <h1 style={{ color: "white", textAlign: "center" }}>
-        Welcome to the Community!
-      </h1>
-      <div style={{display: 'flex', justifyContent: 'center', margin: '2rem', marginTop: '8rem'}}>
-        <Link href="/meals">Meals</Link>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', margin: '2rem', }}>
-        <Link href="/meals/share">Share Meals</Link>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', margin: '2rem', }}>
-        <Link href="/community">Community</Link>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', margin: '2rem', }}>
-        <Link href="/meals/1">Meal 1</Link>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', margin: '2rem', }}>
-        <Link href="/meals/fav">Favorite Meals</Link>
-      </div>
-    </main>
+    <>
+      <header className={classes.header}>
+        <h1>
+          One shared passion: <span className={classes.highlight}>Food</span>
+        </h1>
+        <p>Join our community and share your favorite recipes!</p>
+      </header>
+      <main className={classes.main}>
+        <h2>Community Perks</h2>
+
+        <ul className={classes.perks}>
+          <li>
+            <Image src={mealIcon} alt="A delicious meal" />
+            <p>Share & discover recipes</p>
+          </li>
+          <li>
+            <Image src={communityIcon} alt="A crowd of people, cooking" />
+            <p>Find new friends & like-minded people</p>
+          </li>
+          <li>
+            <Image
+              src={eventsIcon}
+              alt="A crowd of people at a cooking event"
+            />
+            <p>Participate in exclusive events</p>
+          </li>
+        </ul>
+      </main>
+    </>
   );
 }
