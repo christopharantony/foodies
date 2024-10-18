@@ -1,43 +1,26 @@
+import MealsGrid from "@/components/main-header/meals/meal-grid";
 import Link from "next/link";
+
+import classes from "./page.module.css";
 
 export default function Meals() {
   return (
-    <main>
-      <h1 style={{ color: "white", textAlign: "center" }}>
-        Explore the World of Meals!
-      </h1>
-      <p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            margin: "2rem",
-            marginTop: "8rem",
-          }}
-        >
-          <Link href="/meals">Meals</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/meals/share">Share Meals</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/community">Community</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/meals/1">Meal 1</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/meals/fav">Favorite Meals</Link>
-        </div>
-      </p>
-    </main>
+    <>
+      <header className={classes?.header}>
+        <h1>
+          Delicious meals, created{" "}
+          <span className={classes?.highlight}>by you</span>
+        </h1>
+        <p>
+          Choose your favourite recipe and cook it yourself. It is easy and fun!
+        </p>
+        <p className={classes?.cta}>
+          <Link href="/meals/share">Share Your Favorite Recipe</Link>
+        </p>
+      </header>
+      <main className={classes?.main}>
+        <MealsGrid meals={[]} />
+      </main>
+    </>
   );
 }
