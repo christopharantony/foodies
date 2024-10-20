@@ -1,43 +1,49 @@
-import Link from "next/link";
+import classes from "./page.module.css";
 
-export default function MealShare() {
+export default function ShareMealPage() {
   return (
-    <main>
-      <h1 style={{ color: "white", textAlign: "center" }}>
-        Time to Share with Friends!
-      </h1>
-      <p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            margin: "2rem",
-            marginTop: "8rem",
-          }}
-        >
-          <Link href="/meals">Meals</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/meals/share">Share Meals</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/community">Community</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/meals/1">Meal 1</Link>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", margin: "2rem" }}
-        >
-          <Link href="/meals/fav">Favorite Meals</Link>
-        </div>
-      </p>
-    </main>
+    <>
+      <header className={classes.header}>
+        <h1>
+          Share your <span className={classes.highlight}>favorite meal</span>
+        </h1>
+        <p>Or any other meal you feel needs sharing!</p>
+      </header>
+      <main className={classes.main}>
+        <form className={classes.form}>
+          <div className={classes.row}>
+            <p>
+              <label htmlFor="name">Your name</label>
+              <input type="text" id="name" name="name" required />
+            </p>
+            <p>
+              <label htmlFor="email">Your email</label>
+              <input type="email" id="email" name="email" required />
+            </p>
+          </div>
+          <p>
+            <label htmlFor="title">Title</label>
+            <input type="text" id="title" name="title" required />
+          </p>
+          <p>
+            <label htmlFor="summary">Short Summary</label>
+            <input type="text" id="summary" name="summary" required />
+          </p>
+          <p>
+            <label htmlFor="instructions">Instructions</label>
+            <textarea
+              id="instructions"
+              name="instructions"
+              rows="10"
+              required
+            ></textarea>
+          </p>
+          IMAGE PICKER
+          <p className={classes.actions}>
+            <button type="submit">Share Meal</button>
+          </p>
+        </form>
+      </main>
+    </>
   );
 }
